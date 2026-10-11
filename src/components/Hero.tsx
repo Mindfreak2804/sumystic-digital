@@ -1,6 +1,7 @@
 import { motion } from "framer-motion"
 import { ArrowRight, TrendingUp } from "lucide-react"
 import { site } from "../data/site"
+import { MetaAdsManagerMock } from "./meta-ads/MetaAdsManagerMock"
 
 export function Hero() {
   return (
@@ -17,7 +18,8 @@ export function Hero() {
         />
       </div>
 
-      <div className="relative mx-auto flex min-h-[calc(100dvh-5rem)] max-w-6xl flex-col justify-center px-6 py-16">
+      <div className="relative mx-auto grid min-h-[calc(100dvh-5rem)] max-w-7xl gap-12 px-6 py-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)] lg:items-center">
+        <div className="flex flex-col justify-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -83,6 +85,17 @@ export function Hero() {
               <div className="mt-1 text-sm text-slate-muted">{stat.label}</div>
             </div>
           ))}
+        </motion.div>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 40, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.35 }}
+          className="relative w-full lg:max-h-[min(85vh,640px)]"
+        >
+          <div className="pointer-events-none absolute -inset-4 rounded-3xl bg-chartreuse/5 blur-2xl" />
+          <MetaAdsManagerMock className="relative" />
         </motion.div>
       </div>
     </section>
